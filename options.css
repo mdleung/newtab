@@ -1,0 +1,429 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.logo h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.version {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+/* Main content */
+.main {
+    padding: 2rem;
+}
+
+.settings-section {
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+.section-icon {
+    width: 20px;
+    height: 20px;
+    color: #667eea;
+}
+
+.section-description {
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Search engines configuration */
+.search-engines-config {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.available-engines h3,
+.selected-engines h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #374151;
+}
+
+.drag-hint {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.engines-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.engine-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.engine-item:hover {
+    border-color: #d1d5db;
+    background: #f3f4f6;
+}
+
+.engine-item.selected {
+    border-color: #667eea;
+    background: #eff6ff;
+}
+
+.selected-engine {
+    cursor: grab;
+}
+
+.selected-engine:active {
+    cursor: grabbing;
+}
+
+.selected-engine.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+.drag-handle {
+    display: flex;
+    align-items: center;
+    color: #9ca3af;
+    cursor: grab;
+}
+
+.drag-handle:active {
+    cursor: grabbing;
+}
+
+.drag-handle svg {
+    width: 16px;
+    height: 16px;
+}
+
+.engine-info {
+    flex: 1;
+}
+
+.engine-name {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.25rem;
+}
+
+.engine-url {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.engine-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.add-engine-btn,
+.remove-engine-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-engine-btn {
+    background: #667eea;
+    color: white;
+}
+
+.add-engine-btn:hover:not(:disabled) {
+    background: #5a67d8;
+    transform: translateY(-1px);
+}
+
+.add-engine-btn:disabled {
+    background: #22c55e;
+    cursor: not-allowed;
+}
+
+.add-engine-btn:disabled svg {
+    stroke: white;
+    stroke-width: 2;
+}
+
+.remove-engine-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.remove-engine-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.add-engine-btn svg,
+.remove-engine-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Empty state */
+.empty-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #6b7280;
+    border: 2px dashed #d1d5db;
+    border-radius: 12px;
+    background: #f9fafb;
+}
+
+.empty-state svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+    color: #d1d5db;
+}
+
+.empty-state p:first-of-type {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+.empty-state p:last-of-type {
+    font-size: 0.875rem;
+}
+
+/* Privacy info */
+.privacy-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.privacy-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: #f0f9ff;
+    border: 1px solid #e0f2fe;
+    border-radius: 8px;
+}
+
+.privacy-icon {
+    width: 20px;
+    height: 20px;
+    color: #0ea5e9;
+    flex-shrink: 0;
+}
+
+.privacy-item span {
+    color: #0c4a6e;
+    font-weight: 500;
+}
+
+/* Keyboard shortcuts */
+.shortcuts-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.shortcut-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.shortcut-keys {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+kbd {
+    background: #374151;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: monospace;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shortcut-description {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Footer */
+.footer {
+    padding: 2rem;
+    border-top: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.save-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #22c55e;
+    font-weight: 500;
+}
+
+.status-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    .header {
+        padding: 1.5rem;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .main {
+        padding: 1.5rem;
+    }
+    
+    .search-engines-config {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .shortcut-item {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* Drag and drop visual feedback */
+.sortable {
+    min-height: 100px;
+}
+
+.sortable.drag-over {
+    background: #eff6ff;
+    border: 2px dashed #667eea;
+}
+
+/* Animation for adding/removing engines */
+.engine-item {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Focus styles for accessibility */
+.add-engine-btn:focus,
+.remove-engine-btn:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+.engine-item:focus-within {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+

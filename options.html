@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Search Tab - Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <h1>Minimal Search Tab</h1>
+                </div>
+                <div class="version">v1.0.0</div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="settings-section">
+                <h2 class="section-title">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    Search Engines
+                </h2>
+                <p class="section-description">Select and order your preferred search engines. They will appear on your new tab page in the order you arrange them.</p>
+                
+                <div class="search-engines-config">
+                    <div class="available-engines">
+                        <h3>Available Search Engines</h3>
+                        <div class="engines-list" id="availableEngines">
+                            <div class="engine-item" data-engine="perplexity">
+                                <div class="engine-info">
+                                    <div class="engine-name">Perplexity</div>
+                                    <div class="engine-url">perplexity.ai</div>
+                                </div>
+                                <div class="engine-actions">
+                                    <button class="add-engine-btn" title="Add to new tab" style="font-size:1.3em;line-height:1;">✅</button>
+                                </div>
+                            </div>
+
+                            <div class="engine-item" data-engine="duckduckgo">
+                                <div class="engine-info">
+                                    <div class="engine-name">DuckDuckGo</div>
+                                    <div class="engine-url">duck.com</div>
+                                </div>
+                                <div class="engine-actions">
+                                    <button class="add-engine-btn" title="Add to new tab" style="font-size:1.3em;line-height:1;">✅</button>
+                                </div>
+                            </div>
+
+                            <div class="engine-item" data-engine="yandex">
+                                <div class="engine-info">
+                                    <div class="engine-name">Yandex</div>
+                                    <div class="engine-url">yandex.com</div>
+                                </div>
+                                <div class="engine-actions">
+                                    <button class="add-engine-btn" title="Add to new tab" style="font-size:1.3em;line-height:1;">✅</button>
+                                </div>
+                            </div>
+
+                            <div class="engine-item" data-engine="brave">
+                                <div class="engine-info">
+                                    <div class="engine-name">Brave Search</div>
+                                    <div class="engine-url">search.brave.com</div>
+                                </div>
+                                <div class="engine-actions">
+                                    <button class="add-engine-btn" title="Add to new tab" style="font-size:1.3em;line-height:1;">✅</button>
+                                </div>
+                            </div>
+
+                            <div class="engine-item" data-engine="youtube">
+                                <div class="engine-info">
+                                    <div class="engine-name">YouTube</div>
+                                    <div class="engine-url">youtube.com</div>
+                                </div>
+                                <div class="engine-actions">
+                                    <button class="add-engine-btn" title="Add to new tab" style="font-size:1.3em;line-height:1;">✅</button>
+                                </div>
+                            </div>
+
+                            <div class="engine-item" data-engine="bing">
+                                <div class="engine-info">
+                                    <div class="engine-name">Bing</div>
+                                    <div class="engine-url">bing.com</div>
+                                </div>
+                                <div class="engine-actions">
+                                    <button class="add-engine-btn" title="Add to new tab" style="font-size:1.3em;line-height:1;">✅</button>
+                                </div>
+                            </div>
+
+                            <div class="engine-item" data-engine="chatgpt">
+                                <div class="engine-info">
+                                    <div class="engine-name">ChatGPT</div>
+                                    <div class="engine-url">chatgpt.com</div>
+                                </div>
+                                <div class="engine-actions">
+                                    <button class="add-engine-btn" title="Add to new tab" style="font-size:1.3em;line-height:1;">✅</button>
+                                </div>
+                            </div>
+
+                            <div class="engine-item" data-engine="google">
+                                <div class="engine-info">
+                                    <div class="engine-name">Google</div>
+                                    <div class="engine-url">google.com</div>
+                                </div>
+                                <div class="engine-actions">
+                                    <button class="add-engine-btn" title="Add to new tab" style="font-size:1.3em;line-height:1;">✅</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="selected-engines">
+                        <h3>Selected Search Engines</h3>
+                        <p class="drag-hint">Drag and drop to reorder</p>
+                        <div class="engines-list sortable" id="selectedEngines">
+                            <!-- Selected engines will be populated here -->
+                        </div>
+                        <div class="empty-state" id="emptyState">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                            <p>No search engines selected</p>
+                            <p>Add search engines from the list above</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2 class="section-title">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <circle cx="12" cy="16" r="1"></circle>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    Privacy & Data
+                </h2>
+                <div class="privacy-info">
+                    <div class="privacy-item">
+                        <svg class="privacy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12l5 5l10-10"/>
+                        </svg>
+                        <span>No data collection or tracking</span>
+                    </div>
+                    <div class="privacy-item">
+                        <svg class="privacy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12l5 5l10-10"/>
+                        </svg>
+                        <span>All settings stored locally on your device</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h2 class="section-title">
+                    <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"></path>
+                        <polyline points="9,11 12,14 15,11"></polyline>
+                        <line x1="12" y1="2" x2="12" y2="14"></line>
+                    </svg>
+                    Keyboard Shortcuts
+                </h2>
+                <div class="shortcuts-info">
+                    <div class="shortcut-item">
+                        <span class="shortcut-keys">
+                            <kbd>Ctrl</kbd> + <kbd>K</kbd>
+                        </span>
+                        <span class="shortcut-description">Focus first search bar</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span class="shortcut-keys">
+                            <kbd>Tab</kbd> / <kbd>Shift</kbd> + <kbd>Tab</kbd>
+                        </span>
+                        <span class="shortcut-description">Navigate between search bars</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <span class="shortcut-keys">
+                            <kbd>Enter</kbd>
+                        </span>
+                        <span class="shortcut-description">Search with focused engine</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="save-status" id="saveStatus">
+                <span class="status-icon" style="font-size:1.3em;line-height:1;">✅</span>
+                Settings saved automatically
+            </div>
+        </footer>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>
+
+

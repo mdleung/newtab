@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Minimal Search Tab Light",
+  "version": "1.0.0",
+  "description": "A minimal, elegant search interface for your new tab page with privacy focus (Light Version)",
+  "permissions": [
+    "storage"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Minimal Search Tab Light"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
+
+
